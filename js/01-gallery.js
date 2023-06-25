@@ -30,9 +30,10 @@ function renderGalleryItems() {
 }
 
 function openModal(event) {
-  event.preventDefault();
+    event.preventDefault();
+    
   const imageSource = event.target.dataset.source;
-  const modalContent = `<img src="${imageSource}" alt="" />`;
+  const modalContent = `<img src="${imageSource}" alt=""/>`;
   modalInstance = basicLightbox.create(modalContent, {
     onShow: () => {
       document.addEventListener("keydown", closeModalOnEscape);
