@@ -31,8 +31,11 @@ function renderGalleryItems() {
 
 function openModal(event) {
     event.preventDefault();
-    
+  if (!event.target.matches('.gallery__image')) {
+    return;
+  }
   const imageSource = event.target.dataset.source;
+  
   const modalContent = `<img src="${imageSource}" alt=""/>`;
   modalInstance = basicLightbox.create(modalContent, {
     onShow: () => {
@@ -48,7 +51,6 @@ function openModal(event) {
 function closeModalOnEscape(event) {
   if (event.code === "Escape") {
     modalInstance.close();
-    document.removeEventListener("keydown", closeModalOnEscape);
   }
 }
 
